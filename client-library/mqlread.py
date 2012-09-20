@@ -1,13 +1,13 @@
 from apiclient import discovery, model
 import json
+import os
 
-DEVELOPER_KEY = 'YOUR-KEY-GOES-HERE'
-DEVELOPER_KEY = open('DEVELOPER_KEY').read() #hide
+api_key = open(os.environ['HOME'] + "/.freebase_api_key").read()
 query = [{'id': None, 'name': None, 'type': '/astronomy/planet'}]
 
 model.JsonModel.alt_param = ""
-freebase = discovery.build('freebase', 'v1', developerKey=DEVELOPER_KEY)
+freebase = discovery.build('freebase', 'v1', developerKey=api_key)
 
-response = freebase.mqlread(query=json.dumps(query)).execute()
+response = json.loads(freebase.mqlread(query=json.dumps(query)).execute())
 for planet in response['result']:
 	print planet['name']

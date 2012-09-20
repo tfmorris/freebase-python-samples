@@ -1,12 +1,11 @@
 from apiclient import discovery
 from apiclient import model
 import json
+import os
 
-DEVELOPER_KEY = 'YOUR-KEY-GOES-HERE'
-DEVELOPER_KEY = open('DEVELOPER_KEY').read() #hide
-
+api_key = open(os.environ['HOME'] + "/.freebase_api_key").read()
 model.JsonModel.alt_param = ""
-freebase = discovery.build('freebase', 'v1', developerKey=DEVELOPER_KEY)
+freebase = discovery.build('freebase', 'v1', developerKey=api_key)
 topic = freebase.topic.lookup(id='/en/san_francisco').execute()
 
 for property in topic['property']:

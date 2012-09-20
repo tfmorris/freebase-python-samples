@@ -1,10 +1,11 @@
 from apiclient import discovery
 from apiclient import model
 import json
+import os
 
-DEVELOPER_KEY="AIzaSyABJUiXZN-2n-IWBnp29tp5WXckX7XF6bs"
+api_key = open(os.environ['HOME'] + "/.freebase_api_key").read()
 model.JsonModel.alt_param = ""
-freebase = discovery.build('freebase', 'v1', developerKey=DEVELOPER_KEY)
+freebase = discovery.build('freebase', 'v1', developerKey=api_key)
 
 response = freebase.text(id='en/bob_dylan').execute()
 print response

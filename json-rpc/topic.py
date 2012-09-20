@@ -1,8 +1,9 @@
 import urllib
 import urllib2
 import json
+import os
 
-api_key = open('DEVELOPER_KEY').read()
+api_key = open(os.environ['HOME'] + "/.freebase_api_key").read()
 url = 'https://www.googleapis.com/rpc'
 request = {
             'method': 'freebase.topic', 
