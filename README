@@ -1,5 +1,5 @@
-This project contains sample code snippets that show hot to use the Freebase.com APIs.
+This project contains sample code snippets that show how to use the Freebase.com APIs.
 
-The project contains folders called simple, client-library and json-rpc. Each of these contain sample code showing how to connect to the various API services using plain Python code, the Google APIs client library or JSON-RPC.
+The project contains folders called simple, client-library and json-rpc. Each of these contain sample code showing how to connect to the various API services using a different method: plain Python code, the Google APIs client library or JSON-RPC.
 
 In order to run the samples, you'll need a file named .freebase_api_key in your home directory which contains your Google APIs key available from the API Console (https://developers.google.com/console/). If you wish to run the authenticated API examples (like mqlwrite) you'll also need .freebase_client_id and .freebase_client_secret files with the appropriate contents friom the API Console.
